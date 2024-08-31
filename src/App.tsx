@@ -103,21 +103,27 @@ function ActionsPanel({canvasContext, canvasRef}: ActionsPanelProps) {
     }
 
     return <div className={"absolute drop-shadow-xl rounded-lg bg-card p-[24px] left-[24px] bottom-[24px] flex flex-col gap-[16px]"}>
-        <ToggleTheme />
+        <div className={"flex flex-col gap-[16px] text-center"}>
+            <ToggleTheme />
+            <Button onClick={onClearCanvas} variant={"outline"}  className={"gap-[8px]"} size={"lg"}>
+                <RefreshCcw size={16} />
+                Nettoyer l'interface
+            </Button>
+        </div>
         <Separator />
-        <Button onClick={onClearCanvas} variant={"outline"}  className={"gap-[8px]"} size={"lg"}>
-            <RefreshCcw size={16} />
-            Nettoyer l'interface
-        </Button>
-        <Separator />
-        <Button onClick={onSaveNeuralNetworkCtaClicked} variant={"outline"} className={"gap-[8px]"} size={"lg"}>
-            <HardDriveDownload size={16} />
-            Sauvegarder le réseau de neurones
-        </Button>
-        <Button onClick={onLoadNeuralNetworkCtaClicked} variant={"outline"}  className={"gap-[8px]"} size={"lg"}>
-            <Import size={16} />
-            Charger le réseau de neurones
-        </Button>
+        <div className={"flex flex-col gap-[16px] text-center"}>
+            <Label>Réseau de neurones</Label>
+            <div className={"flex items-center gap-[16px]"}>
+                <Button onClick={onSaveNeuralNetworkCtaClicked} variant={"outline"} className={"gap-[8px]"} size={"lg"}>
+                    <HardDriveDownload size={16} />
+                    Sauvegarder
+                </Button>
+                <Button onClick={onLoadNeuralNetworkCtaClicked} variant={"outline"}  className={"gap-[8px]"} size={"lg"}>
+                    <Import size={16} />
+                    Importer
+                </Button>
+            </div>
+        </div>
     </div>
 }
 
